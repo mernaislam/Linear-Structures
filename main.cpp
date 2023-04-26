@@ -2,9 +2,29 @@
 // Created by Merna Islam on 20/04/2023.
 //
 #include "SingleLinkedList.cpp"
+#include"DLL.cpp"
 #include "Queue.cpp"
+#include"Stack.cpp"
 #include <bits/stdc++.h>
 using namespace std;
+
+void longest_valid_Parentheses(){
+    int cnt = 0;
+    Stack<char> s;
+    string input;
+    cout<<"Enter the string for the longest valid parentheses:  ";
+    cin>>input;
+    for(auto i : input){
+        if(i == '('){
+            s.push(i);
+        }
+        if(i == ')' && !s.isEmpty()){
+            s.pop();
+            cnt+=2;
+        }
+    }
+    cout<<"The longest valid parentheses is: "<<cnt<<endl;
+}
 
 int main(){
     SingleLinkedList<int> sll;

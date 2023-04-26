@@ -14,6 +14,15 @@ DLL<T>::DLL() {
     size = 0;
 }
 template<class T>
+DLL<T>::~DLL() {
+    Node_dll<T>* temp = head;
+    while(temp != nullptr){
+        Node_dll<T>* temp2 = temp->next;
+        free(temp);
+        temp = temp2;
+    }
+}
+template<class T>
 void DLL<T>::insertAtHead(T element) {
     ///Time Complexity O(1)
     Node_dll<T>* newnode_dll = new Node_dll<T>(element);
@@ -67,6 +76,7 @@ void DLL<T>::insertAt(T element, int index) {
         }
         newnode_dll->next = temp->next;
         newnode_dll->previous = temp;
+        temp->next->previous = newnode_dll;
         temp->next = newnode_dll;
         size++;
     }
@@ -77,9 +87,14 @@ void DLL<T>::insertAfter(Node_dll<T> *prev_node_dll, T data) {
     ///Time Complexity O(1)
     Node_dll<T>* newnode_dll = new Node_dll<T>(data);
     newnode_dll->next = prev_node_dll->next;
-    prev_node_dll->next->previous = newnode_dll;
+    if(prev_node_dll != tail) {
+        prev_node_dll->next->previous = newnode_dll;
+    }
     newnode_dll->previous = prev_node_dll;
     prev_node_dll->next = newnode_dll;
+    if(prev_node_dll == tail){
+        tail = newnode_dll;
+    }
     size++;
 }
 
@@ -130,7 +145,7 @@ void DLL<T>::removeAt(int index) {
     if (index == 0) {
         this->removeAtHead();
     }
-    else if(index == size){
+    else if(index == size-1){
         this->removeAtTail();
     }
     else {
@@ -189,7 +204,7 @@ bool DLL<T>::isExist(T element) {
 template<class T>
 bool DLL<T>::isItemAtEqual(T element, int index) {
     ///Time Complexity O(N)
-    int cnt =0;
+    int cnt = 0;
     Node_dll<T>* temp = head;
     while(cnt != index){
         temp = temp->next;

@@ -25,6 +25,7 @@ class DLL {
     int size;
 public:
     DLL();
+    ~DLL();
     void insertAtHead(T element);
     void insertAtTail(T element);
     void insertAt(T element, int index);

@@ -15,17 +15,17 @@ circularLinkedList<T>::circularLinkedList() {
 
 template<class T>
 void circularLinkedList<T>::insertAtEnd(T item) {
-    Node<T> *newNode = new Node<T>();
-    newNode->data = item;
+    Node_cll<T> *newNode_cll = new Node_cll<T>();
+    newNode_cll->data = item;
     if (head == nullptr) {
-        head = newNode;
-        tail = newNode;
+        head = newNode_cll;
+        tail = newNode_cll;
         size++;
         return;
     } else {
-        tail->next = newNode;
-        newNode->prev = tail;
-        tail = newNode;
+        tail->next = newNode_cll;
+        newNode_cll->prev = tail;
+        tail = newNode_cll;
         tail->next = head;
         head->prev = tail;
         size++;
@@ -35,17 +35,17 @@ void circularLinkedList<T>::insertAtEnd(T item) {
 
 template<class T>
 void circularLinkedList<T>::insertAtHead(T item) {
-    Node<T> *newNode = new Node<T>();
-    newNode->data = item;
+    Node_cll<T> *newNode_cll = new Node_cll<T>();
+    newNode_cll->data = item;
     if (head == nullptr) {
-        head = newNode;
-        tail = newNode;
+        head = newNode_cll;
+        tail = newNode_cll;
         size++;
         return;
     } else {
-        newNode->next = head;
-        head->prev = newNode;
-        head = newNode;
+        newNode_cll->next = head;
+        head->prev = newNode_cll;
+        head = newNode_cll;
         head->prev = tail;
         tail->next = head;
         size++;
@@ -63,9 +63,9 @@ void circularLinkedList<T>::insertAt(T item, int indx) {
         cout << "Invalid input." << endl;
         return;
     } else {
-        Node<T> *newNode = new Node<T>();
-        newNode->data = item;
-        Node<T> *tmp = head;
+        Node_cll<T> *newNode_cll = new Node_cll<T>();
+        newNode_cll->data = item;
+        Node_cll<T> *tmp = head;
         bool first = true;
         int cnt = 0;
         while ((tmp != head || first) && cnt != indx) {
@@ -74,18 +74,18 @@ void circularLinkedList<T>::insertAt(T item, int indx) {
             cnt++;
         }
         if (cnt == 0) {
-            head->prev = newNode;
-            newNode->next = head;
-            head = newNode;
+            head->prev = newNode_cll;
+            newNode_cll->next = head;
+            head = newNode_cll;
             head->prev = tail;
             tail->next = head;
             size++;
             return;
         } else {
-            tmp->prev->next = newNode;
-            newNode->prev = tmp->prev;
-            newNode->next = tmp;
-            tmp->prev = newNode;
+            tmp->prev->next = newNode_cll;
+            newNode_cll->prev = tmp->prev;
+            newNode_cll->next = tmp;
+            tmp->prev = newNode_cll;
             size++;
             return;
         }
@@ -98,7 +98,7 @@ void circularLinkedList<T>::removeAtHead() {
         cout << "CLL is empty." << endl;
         return;
     } else {
-        Node<T> *tmp = head;
+        Node_cll<T> *tmp = head;
         head = head->next;
         head->prev = tail;
         tail->next = head;
@@ -119,7 +119,7 @@ void circularLinkedList<T>::removeAt(int indx) {
         return;
     }
     else {
-        Node<T> *tmp = head;
+        Node_cll<T> *tmp = head;
         bool first = true;
         int cnt = 0;
         while ((tmp != head || first) && cnt != indx) {
@@ -149,7 +149,7 @@ void circularLinkedList<T>::removeAtTail() {
     if (isEmpty())
         cout << "CLL is empty." << endl;
     else {
-        Node<T> *tmp = tail;
+        Node_cll<T> *tmp = tail;
         tail = tail->prev;
         tail->next = head;
         head->prev = tail;
@@ -169,7 +169,7 @@ T circularLinkedList<T>::retrieveAt(int indx){
         cout << "Invalid input." << endl;
         return -1;
     } else {
-        Node<T> *tmp = head;
+        Node_cll<T> *tmp = head;
         bool first = true;
         int cnt = 0;
         while ((tmp != head || first) && cnt != indx) {
@@ -192,7 +192,7 @@ T circularLinkedList<T>::replaceAt(T item, int indx) {
 
     }
     else{
-        Node<T>* tmp=head;
+        Node_cll<T>* tmp=head;
         bool first = true;
         int cnt =0;
         while((tmp != head ||first) && cnt != indx){
@@ -211,7 +211,7 @@ T circularLinkedList<T>::replaceAt(T item, int indx) {
 
 template<class T>
 bool circularLinkedList<T>::isExist(T item) {
-    Node<T>* tmp=head;
+    Node_cll<T>* tmp=head;
     bool first=true;
     while(tmp !=head || first){
         if(tmp->data == item)
@@ -232,7 +232,7 @@ bool circularLinkedList<T>::isItemAtEqual(T item, int indx) {
 
     }
     else{
-        Node<T>* tmp=head;
+        Node_cll<T>* tmp=head;
         bool first = true;
         int cnt =0;
         while((tmp != head ||first) && cnt != indx){
@@ -267,8 +267,8 @@ void circularLinkedList<T>::swap(int firstItemIdx, int secondItemIdx){
         return;
     }
     else{
-        Node<T>* tmp1 = head;
-        Node<T>* tmp2 = head;
+        Node_cll<T>* tmp1 = head;
+        Node_cll<T>* tmp2 = head;
         bool frst1 = true;
         bool frst2 = true;
         int cnt1=0;
@@ -289,7 +289,7 @@ void circularLinkedList<T>::swap(int firstItemIdx, int secondItemIdx){
             head=tmp1;
         tmp2->prev->next = tmp1;
         tmp1->prev->next = tmp2;
-        Node<T>* tmp = tmp2->next;
+        Node_cll<T>* tmp = tmp2->next;
         tmp2->next = tmp1->next;
         tmp1->next = tmp;
         tmp = tmp2->prev;
@@ -321,7 +321,7 @@ void circularLinkedList<T>::print(){
         cout << "List is empty" << endl;
         return;
     }
-    Node<T>* tmp = head;
+    Node_cll<T>* tmp = head;
     bool first = true;
     while (tmp != head || first) {
         cout << tmp->data << ' ';

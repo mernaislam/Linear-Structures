@@ -5,6 +5,8 @@
 #include"DLL.cpp"
 #include "Queue.cpp"
 #include"Stack.cpp"
+#include "arrayBasedList.cpp"
+#include "circularLinkedList.cpp"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,39 +29,59 @@ void longest_valid_Parentheses(){
 }
 
 int main(){
-    SingleLinkedList<int> sll;
-    sll.insertAtHead(0);
-    sll.insertAtHead(6);
-    sll.insertAtHead(8);
-    sll.print();
-    sll.insertAtTail(8);
-    sll.insertAt(9, 2);
-    sll.print();
-    sll.removeAt(1);
-    sll.print();
-    if(sll.isItemAtEqual(8, 2)){
-        cout << "yes\n";
-    }
+//    SingleLinkedList<int> sll;
+//    sll.insertAtHead(0);
+//    sll.insertAtHead(6);
+//    sll.insertAtHead(8);
+//    sll.print();
+//    sll.insertAtTail(8);
+//    sll.insertAt(9, 2);
+//    sll.print();
+//    sll.removeAt(1);
+//    sll.print();
+//    if(sll.isItemAtEqual(8, 2)){
+//        cout << "yes\n";
+//    }
+//
+//    Queue<int> q;
+//    q.print();
+//    cout << "first2: " << q.first() << "\n";
+//    q.enqueue(3);
+//    cout << "size1:" << q.queueSize() << "\n";
+//    cout << "first2: " << q.first() << "\n";
+//    q.enqueue(4);
+//    q.enqueue(5);
+//    cout << "size2:" << q.queueSize() << "\n";
+//    cout << "first2: " << q.first() << "\n";
+//    q.print();
+//    int val = q.dequeue();
+//    cout << val << "\n";
+//    q.print();
+//    int val2 = q.dequeue();
+//    cout << val2 << "\n";
+//    q.print();
+//    int val3 = q.dequeue();
+//    cout << val3 << "\n";
+//    q.print();
+//    q.dequeue();
 
-    Queue<int> q;
-    q.print();
-    cout << "first2: " << q.first() << "\n";
-    q.enqueue(3);
-    cout << "size1:" << q.queueSize() << "\n";
-    cout << "first2: " << q.first() << "\n";
-    q.enqueue(4);
-    q.enqueue(5);
-    cout << "size2:" << q.queueSize() << "\n";
-    cout << "first2: " << q.first() << "\n";
-    q.print();
-    int val = q.dequeue();
-    cout << val << "\n";
-    q.print();
-    int val2 = q.dequeue();
-    cout << val2 << "\n";
-    q.print();
-    int val3 = q.dequeue();
-    cout << val3 << "\n";
-    q.print();
-    q.dequeue();
+
+    circularLinkedList<int> cll;
+    cll.insertAtHead(0);
+    cll.insertAtHead(6);
+    cll.insertAtHead(8);
+    cll.print();
+
+
+    arrayBasedList<int> arr(6);
+    arr.insert(5);
+    arr.insert(6);
+    arr.insert(7);
+    arr.insert(8);
+    arr.insert(9);
+    arr.print();
+    cout << arr.isItemAtEqual(2,5);
+    arr.clear();
+    arr.print();
+
 }

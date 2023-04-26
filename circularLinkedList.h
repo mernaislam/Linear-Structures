@@ -7,11 +7,11 @@
 
 
 template<typename T>
-struct Node{
+struct Node_cll{
     T data;
-    Node* next;
-    Node* prev;
-    Node(){
+    Node_cll* next;
+    Node_cll* prev;
+    Node_cll(){
         data = 0;
         next = nullptr;
         prev = nullptr;
@@ -20,8 +20,8 @@ struct Node{
 template<class T>
 class circularLinkedList{
 private:
-    Node<T>* head;
-    Node<T>* tail;
+    Node_cll<T>* head;
+    Node_cll<T>* tail;
     int size;
 public:
     circularLinkedList();

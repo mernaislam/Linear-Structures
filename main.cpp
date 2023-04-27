@@ -50,25 +50,51 @@ void combineBetweenZeros(SingleLinkedList<int>* sll){
     }
 }
 
+void generateBinaryNumbers(int n){
+    Queue<string> q;
+    q.enqueue("1");
+    while (n--)
+    {
+        string s1 = q.first();
+        q.enqueue(q.first() + '0');
+        q.enqueue(q.first() + '1');
+        cout << q.first() << ' ';
+        q.dequeue();
+    }
+}
+
+void generate(int n){
+    queue<string> q;
+    q.push("1");
+    while (n--)
+    {
+        string s1 = q.front();
+        q.push(q.front() + '0');
+        q.push(q.front() + '1');
+        cout << q.front() << ' ';
+        q.pop();
+    }
+}
+
 int main(){
-    SingleLinkedList<int> sll;
-    sll.insertAtTail(0);
-    sll.insertAtTail(1);
-    sll.insertAtTail(1);
-    sll.insertAtTail(2);
-    sll.insertAtTail(0);
-    sll.insertAtTail(3);
-    sll.insertAtTail(3);
-    sll.insertAtTail(9);
-    sll.insertAtTail(0);
-    sll.insertAtTail(4);
-    sll.insertAtTail(5);
-    sll.insertAtTail(0);
-    sll.insertAtTail(3);
-    sll.insertAtTail(0);
-    sll.print();
-    combineBetweenZeros(&sll);
-    sll.print();
+//    SingleLinkedList<int> sll;
+//    sll.insertAtTail(0);
+//    sll.insertAtTail(1);
+//    sll.insertAtTail(1);
+//    sll.insertAtTail(2);
+//    sll.insertAtTail(0);
+//    sll.insertAtTail(3);
+//    sll.insertAtTail(3);
+//    sll.insertAtTail(9);
+//    sll.insertAtTail(0);
+//    sll.insertAtTail(4);
+//    sll.insertAtTail(5);
+//    sll.insertAtTail(0);
+//    sll.insertAtTail(3);
+//    sll.insertAtTail(0);
+//    sll.print();
+//    combineBetweenZeros(&sll);
+//    sll.print();
 //    sll.insertAtHead(0);
 //    sll.insertAtHead(6);
 //    sll.insertAtHead(8);
@@ -121,4 +147,10 @@ int main(){
 //    cout << arr.isItemAtEqual(2,5);
 //    arr.clear();
 //    arr.print();
+
+int n=5;
+    generateBinaryNumbers(n);
+    cout << endl;
+    generate(n);
+
 }

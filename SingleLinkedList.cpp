@@ -3,6 +3,7 @@
 //
 
 #include "SingleLinkedList.h"
+#include <bits/stdc++.h>
 
 template<class T>
 SingleLinkedList<T>::SingleLinkedList(){
@@ -278,8 +279,3 @@ SingleLinkedList<T>::~SingleLinkedList(){
         clear();
     }
 }
-
-
-
-
-

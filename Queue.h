@@ -7,7 +7,7 @@
 
 template<class T>
 class Queue {
-    T front, back;
+    int front, back;
     T* arr;
     int size;
     int capacity;

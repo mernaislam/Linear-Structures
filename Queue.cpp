@@ -49,7 +49,7 @@ T Queue<T>::dequeue() {
 template<class T>
 T Queue<T>::first() {
     if(!isEmpty()){
-        return arr[0];
+        return arr[front];
     } else {
         cout << "Queue is Empty\n";
         return -1;

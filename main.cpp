@@ -63,19 +63,6 @@ void generateBinaryNumbers(int n){
     }
 }
 
-void generate(int n){
-    queue<string> q;
-    q.push("1");
-    while (n--)
-    {
-        string s1 = q.front();
-        q.push(q.front() + '0');
-        q.push(q.front() + '1');
-        cout << q.front() << ' ';
-        q.pop();
-    }
-}
-
 int main(){
 //    SingleLinkedList<int> sll;
 //    sll.insertAtTail(0);
@@ -151,6 +138,4 @@ int main(){
 int n=5;
     generateBinaryNumbers(n);
     cout << endl;
-    generate(n);
-
 }

@@ -10,15 +10,21 @@ Queue<T>::Queue() {
     size = 0;
     capacity = 100;
     arr = new T[capacity];
-    front = back = 0;
+    front = 0;
+    back = capacity -1;
 }
 
 template<class T>
 Queue<T>::Queue(int sz) {
     size = 0;
-    capacity = sz;
+    if(sz <= 0){
+        capacity = 100;
+    } else {
+        capacity = sz;
+    }
     arr = new T[capacity];
-    front = back = 0;
+    front = 0;
+    back = capacity - 1;
 }
 
 template<class T>
@@ -27,20 +33,19 @@ void Queue<T>::enqueue(T element) {
         cout << "Cannot add more items, Queue is full\n";
         return;
     } else {
-       arr[size] = element;
+        back = (back + 1) % capacity;
+        arr[back] = element;
+        size++;
     }
-    size++;
-    back++;
 }
 
 template<class T>
 T Queue<T>::dequeue() {
     if(isEmpty()){
         cout << "Cannot remove items, Queue is empty\n";
-//        return -1;
     } else {
+        front = (front + 1) % capacity;
         T temp = arr[front];
-        front++;
         size--;
         return temp;
     }
@@ -48,14 +53,8 @@ T Queue<T>::dequeue() {
 
 template<class T>
 T Queue<T>::first() {
-    if(!isEmpty()){
-        return arr[front];
-    }
-//    else {
-//        cout << "Queue is Empty\n";
-//        return -1;
-//    }
-//
+    assert(!isEmpty());
+    return arr[front];
 }
 
 template<class T>
@@ -79,10 +78,10 @@ void Queue<T>::print() {
     if(size == 0){
         cout << "Queue is Empty\n";
     } else {
-        for (int i = front; i < back; ++i) {
+        for (int i = front; i != back ; i = (i + 1) % capacity) {
             cout << arr[i] << " ";
         }
-        cout << "\n";
+        cout << arr[back] << "\n";
     }
 }
 

@@ -121,4 +121,7 @@ int main(){
 //    cout << arr.isItemAtEqual(2,5);
 //    arr.clear();
 //    arr.print();
+
+DLL<int> list;
+list.insertAtHead(1);
 }

@@ -136,7 +136,6 @@ int main(){
 //    arr.clear();
 //    arr.print();
 
-    int n =10;
-    generateBinaryNumbers(n);
+    
 
 }

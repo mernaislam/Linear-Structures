@@ -38,6 +38,7 @@ public:
     void clear();
     void print();
     ~SingleLinkedList();
+    void combineBetweenZeros();
 };
 
 

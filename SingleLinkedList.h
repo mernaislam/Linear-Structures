@@ -16,7 +16,7 @@ struct Node {
 
 template<class T>
 class SingleLinkedList {
-protected:
+private:
     Node<T>* head;
     int size;
     bool cleared = false;
@@ -38,7 +38,9 @@ public:
     void clear();
     void print();
     ~SingleLinkedList();
-    void combineBetweenZeros();
+    Node<T>* getHead(){
+        return head;
+    }
 };
 
 

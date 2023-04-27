@@ -279,31 +279,3 @@ SingleLinkedList<T>::~SingleLinkedList(){
         clear();
     }
 }
-
-template<class T>
-void SingleLinkedList<T>::combineBetweenZeros(){
-    Node<T>* temp = head;
-    vector<int> vecTemp;
-    int sum = 0;
-    int cnt = linkedListSize() + 1;
-    while(temp != nullptr){
-        if(temp->value == 0){
-            vecTemp.push_back(sum);
-            sum = 0;
-        } else {
-            sum += temp->value;
-        }
-        temp = temp->next;
-    }
-    for (int i = 0; i < vecTemp.size(); ++i) {
-        insertAtTail(vecTemp[i]);
-    }
-    while(cnt--){
-        removeAtHead();
-    }
-}
-
-
-
-
-

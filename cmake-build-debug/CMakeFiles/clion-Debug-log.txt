@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S "/Users/mernaislam/Documents/Data Structures/Assignment 2/Linear-Structures" -B "/Users/mernaislam/Documents/Data Structures/Assignment 2/Linear-Structures/cmake-build-debug"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/mernaislam/Documents/Data Structures/Assignment 2/Linear-Structures/cmake-build-debug

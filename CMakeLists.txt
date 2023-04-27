@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(linkedLists
         SingleLinkedList.h
         SingleLinkedList.cpp
-        main.cpp SingleLinkedList.cpp Queue.h Queue.cpp)
+        main.cpp SingleLinkedList.cpp Queue.h Queue.cpp Stack.h Stack.cpp DLL.cpp DLL.h)

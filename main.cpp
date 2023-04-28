@@ -201,7 +201,15 @@ int main(){
 //    arr.clear();
 //    arr.print();
 
-int n=5;
-    generateBinaryNumbers(n);
-    cout << endl;
+//int n=5;
+//    generateBinaryNumbers(n);
+//    cout << endl;
+
+string infix1 = "X^Y / (5*Z) + 2";
+string infix2 = "A + B * C + D";
+string infix3 = "(A + B) * (C + D)";
+string infix = "a+b*(c^d-e)^(f+g*h)-i";
+string postfix = infixToPostfix(infix);
+cout << "Infix expression is: " << infix << "\n";
+cout << "Postfix expression is: " << postfix << "\n";
 }

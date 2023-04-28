@@ -10,6 +10,72 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int precedence(char c){
+    if(c == '^'){
+        return 3;
+    } else if(c == '*' || c == '/'){
+        return 2;
+    } else if(c == '+' || c == '-'){
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+bool isAlpha(char c){
+    if(c >= 'a' && c <= 'z')
+        return true;
+    else if(c >= 'A' && c <= 'Z')
+        return true;
+    else if(c >= '0' && c <= '9')
+        return true;
+    else
+        return false;
+
+}
+
+string infixToPostfix(string infix){
+    Stack<char> stack;
+    stack.push('#');
+    string postfix;
+    for (int i = 0; i < infix.size(); ++i) {
+        if(isAlpha(infix[i])){
+            postfix += infix[i];
+            postfix += ' ';
+        }
+        else if(infix[i] == ' '){
+            continue;
+        }
+        else if(infix[i] == '(' || infix[i] == '^'){
+            stack.push(infix[i]);
+        } else if(infix[i] == ')'){
+            while (stack.top() != '#' && stack.top() != '('){
+                postfix += stack.top();
+                postfix += ' ';
+                stack.pop();
+            }
+            stack.pop();
+        } else {
+            if(precedence(infix[i]) > precedence(stack.top())){
+                stack.push(infix[i]);
+            } else {
+                while(precedence(infix[i]) <= precedence(stack.top()) && stack.top() != '#'){
+                    postfix += stack.top();
+                    postfix += ' ';
+                    stack.pop();
+                }
+                stack.push(infix[i]);
+            }
+        }
+    }
+    while(stack.top() != '#'){
+        postfix += stack.top();
+        postfix += ' ';
+        stack.pop();
+    }
+    return postfix;
+}
+
 void longest_valid_Parentheses(){
     int cnt = 0;
     Stack<char> s;

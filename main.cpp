@@ -10,6 +10,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template<class T>
+Node<T>* merge(Node<T>* head1, Node<T>* head2) {
+    if (!head1) {
+        return head2;
+    }
+    if (!head2) {
+        return head1;
+    }
+    Node<T>* mergedHead;
+    if (head1->value < head2->value) {
+        mergedHead = head1;
+        if (head1->next) {
+            mergedHead->next = merge(head1->next, head2);
+        } else {
+            mergedHead->next = head2;
+        }
+    } else {
+        mergedHead = head2;
+        if (head2->next) {
+            mergedHead->next = merge(head1, head2->next);
+        } else {
+            mergedHead->next = head1;
+        }
+    }
+    return mergedHead;
+}
+
+void mergeKSortedLists(int k, Node<int>* arr[]) {
+    Node<int>* mergedList = arr[0];
+    for (int i = 1; i < k; i++) {
+        mergedList = merge(mergedList, arr[i]);
+    }
+    while (mergedList != nullptr) {
+        cout << mergedList->value << " ";
+        mergedList = mergedList->next;
+    }
+}
+
 int precedence(char c){
     if(c == '^'){
         return 3;
@@ -247,6 +285,31 @@ int main(){
 //cout << "Infix expression is: " << infix << "\n";
 //cout << "Postfix expression is: " << postfix << "\n";
 
+
+//int k = 4;
+//SingleLinkedList<int> l1;
+//l1.insertAtTail(3);
+//l1.insertAtTail(5);
+//l1.insertAtTail(9);
+//l1.insertAtTail(10);
+//SingleLinkedList<int> l2;
+//l2.insertAtTail(1);
+//l2.insertAtTail(4);
+//l2.insertAtTail(6);
+//l2.insertAtTail(10);
+//SingleLinkedList<int> l3;
+//l3.insertAtTail(4);
+//l3.insertAtTail(6);
+//l3.insertAtTail(8);
+//l3.insertAtTail(15);
+//SingleLinkedList<int> l4;
+//l4.insertAtTail(-1);
+//l4.insertAtTail(0);
+//l4.insertAtTail(9);
+//l4.insertAtTail(89);
+//Node<int>* arr[4] = {l1.getHead(), l2.getHead(), l3.getHead(), l4.getHead()};
+//mergeKSortedLists(k, arr);
+
 Queue<int> q;
 q.enqueue(30);
 q.enqueue(11);
@@ -259,6 +322,5 @@ sortQueue(q);
 q.print();
 
 
-    return 0;
-
+return 0;
 }

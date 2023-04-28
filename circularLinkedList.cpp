@@ -245,7 +245,7 @@ bool circularLinkedList<T>::isItemAtEqual(T item, int indx) {
                 return true;
         }
         else{
-            if(tmp->data = item)
+            if(tmp->data == item)
                 return true;
         }
     }

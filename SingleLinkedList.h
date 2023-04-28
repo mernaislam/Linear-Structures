@@ -12,6 +12,10 @@ template<class T>
 struct Node {
     int value;
     Node* next;
+    Node(){
+        value = 0;
+        next = nullptr;
+    }
 };
 
 template<class T>

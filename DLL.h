@@ -44,6 +44,9 @@ public:
     void clear();
     void forwardTraversal();
     void backwardTraversal();
+    Node_dll<T>* getHead(){
+        return head;
+    }
 };
 
 

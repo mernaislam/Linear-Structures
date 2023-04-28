@@ -129,6 +129,40 @@ void generateBinaryNumbers(int n){
     }
 }
 
+
+
+
+void sortQueue(Queue<int>& q) {
+    if (q.isEmpty() || q.queueSize() == 1) {
+        return;
+    }
+    int sz = q.queueSize();
+    int tmp = q.first();
+    q.dequeue();
+    Queue<int> lQ, rQ;
+    for (int i = 1; i < sz; i++) {
+        int x = q.first();
+        q.dequeue();
+        if (x < tmp)
+            lQ.enqueue(x);
+
+        else
+            rQ.enqueue(x);
+
+    }
+    sortQueue(lQ);
+    sortQueue(rQ);
+    while (!lQ.isEmpty()) {
+        q.enqueue(lQ.first());
+        lQ.dequeue();
+    }
+    q.enqueue(tmp);
+    while(!rQ.isEmpty()){
+        q.enqueue(rQ.first());
+        rQ.dequeue();
+    }
+}
+
 int main(){
 //    SingleLinkedList<int> sll;
 //    sll.insertAtTail(0);
@@ -205,11 +239,26 @@ int main(){
 //    generateBinaryNumbers(n);
 //    cout << endl;
 
-string infix1 = "X^Y / (5*Z) + 2";
-string infix2 = "A + B * C + D";
-string infix3 = "(A + B) * (C + D)";
-string infix = "a+b*(c^d-e)^(f+g*h)-i";
-string postfix = infixToPostfix(infix);
-cout << "Infix expression is: " << infix << "\n";
-cout << "Postfix expression is: " << postfix << "\n";
+//string infix1 = "X^Y / (5*Z) + 2";
+//string infix2 = "A + B * C + D";
+//string infix3 = "(A + B) * (C + D)";
+//string infix = "a+b*(c^d-e)^(f+g*h)-i";
+//string postfix = infixToPostfix(infix);
+//cout << "Infix expression is: " << infix << "\n";
+//cout << "Postfix expression is: " << postfix << "\n";
+
+Queue<int> q;
+q.enqueue(30);
+q.enqueue(11);
+q.enqueue(15);
+q.enqueue(4);
+q.enqueue(121);
+q.enqueue(3);
+q.enqueue(1);
+sortQueue(q);
+q.print();
+
+
+    return 0;
+
 }

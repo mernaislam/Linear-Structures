@@ -167,6 +167,40 @@ void generateBinaryNumbers(int n){
     }
 }
 
+
+
+
+void sortQueue(Queue<int>& q) {
+    if (q.isEmpty() || q.queueSize() == 1) {
+        return;
+    }
+    int sz = q.queueSize();
+    int tmp = q.first();
+    q.dequeue();
+    Queue<int> lQ, rQ;
+    for (int i = 1; i < sz; i++) {
+        int x = q.first();
+        q.dequeue();
+        if (x < tmp)
+            lQ.enqueue(x);
+
+        else
+            rQ.enqueue(x);
+
+    }
+    sortQueue(lQ);
+    sortQueue(rQ);
+    while (!lQ.isEmpty()) {
+        q.enqueue(lQ.first());
+        lQ.dequeue();
+    }
+    q.enqueue(tmp);
+    while(!rQ.isEmpty()){
+        q.enqueue(rQ.first());
+        rQ.dequeue();
+    }
+}
+
 int main(){
 //    SingleLinkedList<int> sll;
 //    sll.insertAtTail(0);
@@ -251,6 +285,7 @@ int main(){
 //cout << "Infix expression is: " << infix << "\n";
 //cout << "Postfix expression is: " << postfix << "\n";
 
+
 //int k = 4;
 //SingleLinkedList<int> l1;
 //l1.insertAtTail(3);
@@ -274,4 +309,18 @@ int main(){
 //l4.insertAtTail(89);
 //Node<int>* arr[4] = {l1.getHead(), l2.getHead(), l3.getHead(), l4.getHead()};
 //mergeKSortedLists(k, arr);
+
+Queue<int> q;
+q.enqueue(30);
+q.enqueue(11);
+q.enqueue(15);
+q.enqueue(4);
+q.enqueue(121);
+q.enqueue(3);
+q.enqueue(1);
+sortQueue(q);
+q.print();
+
+
+return 0;
 }

@@ -8,6 +8,7 @@
 using namespace std;
 template<class T>
 Queue<T>::Queue() {
+    /// Time complexity O(1)
     size = 0;
     capacity = 100;
     arr = new T[capacity];
@@ -17,6 +18,7 @@ Queue<T>::Queue() {
 
 template<class T>
 Queue<T>::Queue(int sz) {
+    /// Time complexity O(1)
     size = 0;
     if(sz <= 0){
         capacity = 100;
@@ -30,6 +32,7 @@ Queue<T>::Queue(int sz) {
 
 template<class T>
 void Queue<T>::enqueue(T element) {
+    /// Time complexity O(1)
     if(size == capacity){
         cout << "Cannot add more items, Queue is full\n";
         return;
@@ -42,6 +45,7 @@ void Queue<T>::enqueue(T element) {
 
 template<class T>
 T Queue<T>::dequeue() {
+    /// Time complexity O(1)
     if(isEmpty()){
         cout << "Cannot remove items, Queue is empty\n";
     } else {
@@ -54,6 +58,7 @@ T Queue<T>::dequeue() {
 
 template<class T>
 T Queue<T>::first() {
+    /// Time complexity O(1)
     if(isEmpty()){
         assert(isEmpty());
     }
@@ -62,16 +67,19 @@ T Queue<T>::first() {
 
 template<class T>
 bool Queue<T>::isEmpty() {
+    /// Time complexity O(1)
     return(size == 0);
 }
 
 template<class T>
 int Queue<T>::queueSize() {
+    /// Time complexity O(1)
     return size;
 }
 
 template<class T>
 void Queue<T>::clear() {
+    /// Time complexity O(1)
     delete[] arr;
     isCleared = true;
 }

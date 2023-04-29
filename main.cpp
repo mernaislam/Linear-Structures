@@ -410,3 +410,38 @@ void generateBinaryNumbers(int n){
     }
     cout << endl;
 }
+
+/// \author Mohannad Hisham
+/// \brief this is a function that sorts a given queue
+/// \param q refers to an object by reference of the implemented queue given
+void sortQueue(Queue<int>& q) {
+    if (q.isEmpty() || q.queueSize() == 1) {
+        return;
+    }
+    int sz = q.queueSize();
+    int tmp = q.first();
+    q.dequeue();
+    Queue<int> lQ, rQ;
+    for (int i = 1; i < sz; i++) {
+        int x = q.first();
+        q.dequeue();
+        if (x < tmp)
+            lQ.enqueue(x);
+
+        else
+            rQ.enqueue(x);
+
+    }
+    sortQueue(lQ);
+    sortQueue(rQ);
+    while (!lQ.isEmpty()) {
+        q.enqueue(lQ.first());
+        lQ.dequeue();
+    }
+    q.enqueue(tmp);
+    while(!rQ.isEmpty()){
+        q.enqueue(rQ.first());
+        rQ.dequeue();
+    }
+}
+

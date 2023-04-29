@@ -1,6 +1,7 @@
 //
 // Created by Merna Islam on 20/04/2023.
 //
+/// \author Merna Islam - 20210500
 
 #include "SingleLinkedList.h"
 #include <bits/stdc++.h>
@@ -71,11 +72,11 @@ template<class T>
 void SingleLinkedList<T>::removeAtHead(){
     Node<T>* temp = nullptr;
     if(isEmpty()){
+        cout << "Can't remove: List is already Empty\n";
         return;
     }
     if(head->next == nullptr) {
         temp = head;
-        cout << "insideee\n";
         head = nullptr;
         delete temp;
 
@@ -91,6 +92,7 @@ template<class T>
 void SingleLinkedList<T>::removeAtTail(){
     Node<T>* current = head;
     if(isEmpty()){
+        cout << "Can't remove: List is already Empty\n";
         return;
     }
     if(head->next == nullptr) {
@@ -116,6 +118,7 @@ void SingleLinkedList<T>::removeAt(int index){
     Node<T>* current = head;
     int cnt = 0;
     if(isEmpty()){
+        cout << "Can't remove: List is already Empty\n";
         return;
     } else if(index == 0){
         current = head;
@@ -256,7 +259,8 @@ template<class T>
 void SingleLinkedList<T>::clear(){
     Node<T>* current = head;
     while(current != nullptr){
-        Node<T>* temp = current;
+        Node<T>* temp = new Node<T>;
+        temp = current;
         current = current->next;
         delete temp;
     }
@@ -265,12 +269,16 @@ void SingleLinkedList<T>::clear(){
 
 template<class T>
 void SingleLinkedList<T>::print() {
-    Node<T>* current = head;
-    while(current != nullptr){
-        cout << current->value << " ";
-        current = current->next;
+    if(isEmpty()){
+        cout << "Can't print: List is already Empty\n";
+    } else {
+        Node<T>* current = head;
+        while(current != nullptr){
+            cout << current->value << " ";
+            current = current->next;
+        }
+        cout << "\n";
     }
-    cout << "\n";
 }
 
 template<class T>

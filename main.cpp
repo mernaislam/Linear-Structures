@@ -255,11 +255,17 @@ int main(){
 //    q.print();
 //    q.dequeue();
 
-//    circularLinkedList<int> cll;
-//    cll.insertAtHead(0);
-//    cll.insertAtHead(6);
-//    cll.insertAtHead(8);
-//    cll.print();
+    circularLinkedList<int> cll;
+    cll.insertAtHead(0);
+    cll.insertAtHead(6);
+    cll.insertAtHead(8);
+    cll.print();
+    cll.insertAtHead(5);
+    cll.insertAtHead(9);
+    cll.print();
+    return 0;
+
+
 //
 //
 //    arrayBasedList<int> arr(6);
@@ -310,16 +316,18 @@ int main(){
 //Node<int>* arr[4] = {l1.getHead(), l2.getHead(), l3.getHead(), l4.getHead()};
 //mergeKSortedLists(k, arr);
 
-Queue<int> q;
-q.enqueue(30);
-q.enqueue(11);
-q.enqueue(15);
-q.enqueue(4);
-q.enqueue(121);
-q.enqueue(3);
-q.enqueue(1);
-sortQueue(q);
-q.print();
+//Queue<int> q;
+//q.enqueue(30);
+//q.enqueue(11);
+//q.enqueue(15);
+//q.enqueue(4);
+//q.enqueue(121);
+//q.enqueue(3);
+//q.enqueue(1);
+//sortQueue(q);
+//q.print();
+
+
 
 
 return 0;

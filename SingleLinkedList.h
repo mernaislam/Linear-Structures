@@ -1,6 +1,7 @@
 //
 // Created by Merna Islam on 20/04/2023.
 //
+/// \author Merna Islam - 20210500
 
 #ifndef ASSIGNMENT_2_SINGLELINKEDLIST_H
 #define ASSIGNMENT_2_SINGLELINKEDLIST_H
@@ -10,10 +11,9 @@ using namespace std;
 
 template<class T>
 struct Node {
-    int value;
+    T value;
     Node* next;
     Node(){
-        value = 0;
         next = nullptr;
     }
 };

@@ -1,6 +1,7 @@
 //
 // Created by Merna Islam on 26/04/2023.
 //
+/// \author Merna Islam - 20210500
 
 #include "Queue.h"
 #include <iostream>
@@ -44,8 +45,8 @@ T Queue<T>::dequeue() {
     if(isEmpty()){
         cout << "Cannot remove items, Queue is empty\n";
     } else {
-        front = (front + 1) % capacity;
         T temp = arr[front];
+        front = (front + 1) % capacity;
         size--;
         return temp;
     }
@@ -53,7 +54,9 @@ T Queue<T>::dequeue() {
 
 template<class T>
 T Queue<T>::first() {
-    assert(!isEmpty());
+    if(isEmpty()){
+        assert(isEmpty());
+    }
     return arr[front];
 }
 

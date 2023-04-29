@@ -21,11 +21,12 @@ struct Node_cll{
 template<class T>
 class circularLinkedList{
 private:
-    Node_cll<T>* head;
+    Node_cll<T> *head;
     Node_cll<T>* tail;
     int size;
 public:
     circularLinkedList();
+    ~circularLinkedList();
     void insertAtEnd(T item);
     void insertAtHead(T item);
     void insertAt(T item,int indx);

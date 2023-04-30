@@ -26,6 +26,7 @@ public:
         head = nullptr;
         size = 0;
     }
+    ~Stack();
     void push(T element);
     T pop();
     T top();

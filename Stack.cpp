@@ -7,6 +7,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template<class T>
+Stack<T>::~Stack() {
+    ///Time Complexity O(N)
+    Node_s<T>* current = head;
+    while(current!= nullptr){
+        Node_s<T>* temp = current;
+        current = current->next;
+        delete temp;
+    }
+}
+
 
 template<class T>
 void Stack<T>::push(T element) {

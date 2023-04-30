@@ -196,6 +196,47 @@ int main(){
 
 /// Testing Doubly Linked List
     cout << "\nTesting Doubly Linked List:\n";
+    DLL<int> list;
+    list.insertAtTail(5);
+    list.insertAtTail(0);
+    list.insertAtTail(12);
+    list.insertAtHead(1);
+    list.insertAt(2,0);
+    list.insertAt(15,3);
+    list.insertAt(9,6);
+    cout<<"List after trying all types of insertion: ";
+    list.forwardTraversal();
+    cout<<endl;
+    cout<<"List after using backward traversal: ";
+    list.backwardTraversal();
+    cout<<endl;
+    list.reverse();
+    cout<<"List after actually reversing it: ";
+    list.forwardTraversal();
+    cout<<endl;
+    list.removeAtHead();
+    list.removeAtTail();
+    list.removeAt(list.doubleLikedListSize()-2);
+    cout<<"List after removing from all possible positions: ";
+    list.forwardTraversal();
+    cout<<endl;
+    cout<<"The value at index 2 is: "<<list.retrieveAt(2)<<endl;
+    list.replaceAt(17,2);
+    if(list.isItemAtEqual(17,2)){
+        cout<<"List after changing value of index 2 to 17: ";
+        list.forwardTraversal();
+        cout<<endl;
+    }
+    list.Swap(0, 3);
+    list.Swap(1,2);
+    cout<<"List after swapping its head and tail together , and the inner elements together: ";
+    list.forwardTraversal();
+    cout<<endl;
+    list.clear();
+    if(list.isEmpty()){
+        cout<<"List is cleared"<<endl;
+    }
+
 
 
 /// Testing Circular Linked List
@@ -231,7 +272,24 @@ int main(){
 
 /// Testing Stack
     cout << "\nTesting Stack:\n";
-
+    Stack<int> stack;
+    stack.push(4);
+    stack.push(3);
+    stack.push(2);
+    stack.push(1);
+    stack.print();
+    cout<<endl;
+    stack.pop();
+    stack.pop();
+    cout<<"The stack after removing elements is: ";
+    stack.print();
+    cout<<endl;
+    cout<<"The size of the stack is: "<<stack.stackSize()<<endl;
+    cout<<"The first element in the stack is "<< stack.top()<<endl;
+    stack.clear();
+    if(stack.isEmpty()){
+        cout<<"Stack is cleared"<<endl;
+    }
 
 /// Testing Queue
     cout << "\nTesting Queue:\n";

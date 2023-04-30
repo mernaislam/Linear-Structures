@@ -237,8 +237,6 @@ int main(){
         cout<<"List is cleared"<<endl;
     }
 
-
-
 /// Testing Circular Linked List
     cout << "\nTesting Circular Linked List:\n";
     circularLinkedList<int> cll;

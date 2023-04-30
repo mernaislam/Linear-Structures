@@ -125,6 +125,8 @@ void arrayBasedList<T>::clear() {
 
 template <class T>
 void arrayBasedList<T>::print() {
+    if (isEmpty())
+        cout << "List is empty." << endl;
     for(int i=0;i < len;i++){
         cout << list[i] << ' ';
     }

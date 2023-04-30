@@ -12,6 +12,7 @@ circularLinkedList<T>::circularLinkedList() {
     head = nullptr;
     tail = nullptr;
     size = 0;
+
 }
 
 template<class T>
@@ -328,17 +329,10 @@ void circularLinkedList<T>::clear(){
     head = nullptr;
     tail = nullptr;
     this->size = 0;
+
 }
 
 
-
-//template<class T>
-//void circularLinkedList<T>::clear(){
-//    int cnt = cllSize();
-//    while(cnt--){
-//        this->removeAtTail();
-//    }
-//}
 
 template<class T>
 void circularLinkedList<T>::print(){
@@ -358,17 +352,20 @@ void circularLinkedList<T>::print(){
 
 template<class T>
 circularLinkedList<T>::~circularLinkedList() {
-    Node_cll<T>* current = head;
-    bool first = true;
-    while (current != head || first) {
-        Node_cll<T>* tmp = current;
-        current = current->next;
-        tmp->next=nullptr;
-        tmp->prev=nullptr;
-        first = false;
-        delete tmp;
+    if(!isEmpty()){
+        Node_cll<T>* current = head;
+        bool first = true;
+        while (current != head || first) {
+            Node_cll<T>* tmp = current;
+            current = current->next;
+            tmp->next=nullptr;
+            tmp->prev=nullptr;
+            first = false;
+            delete tmp;
+        }
+        head = nullptr;
+        tail = nullptr;
+        this->size = 0;
     }
-    head = nullptr;
-    tail = nullptr;
-    this->size = 0;
+
 }

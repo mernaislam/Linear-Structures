@@ -147,14 +147,20 @@ int main(){
 
 /// Testing Array-Based list
     cout << "\nTesting Array-Based list:\n";
-    arrayBasedList<int> arrB(6);
+    arrayBasedList<double> arrB(5);
     arrB.insert(5);
     arrB.insert(6);
+    arrB.insertAt(0,4.5);
+    arrB.insertAt(2,6);
     arrB.insert(7);
-    arrB.insert(8);
-    arrB.insert(9);
     arrB.print();
-    cout << arrB.isItemAtEqual(2,5);
+    arrB.retrieveAt(4);
+    arrB.removeAt(3);
+    arrB.print();
+    cout << arrB.isItemAtEqual(2,6) << endl;
+    cout << arrB.isEmpty() << endl;
+    cout << arrB.isFull() << endl;
+    cout << arrB.maxListSize() << endl;
     arrB.clear();
     arrB.print();
 
@@ -196,9 +202,32 @@ int main(){
     cout << "\nTesting Circular Linked List:\n";
     circularLinkedList<int> cll;
     cll.insertAtHead(0);
-    cll.insertAtHead(6);
-    cll.insertAtHead(8);
+    cll.insertAtEnd(2);
+    cll.insertAt(1,1);
+    cll.insertAtEnd(3);
+    cll.insertAtEnd(4);
+    cll.insertAtEnd(5);
     cll.print();
+    cll.removeAtHead();
+    cll.removeAtTail();
+    cll.removeAt(2);
+    cll.print();
+    cout << cll.retrieveAt(1) << endl;
+    cll.replaceAt(10, 1);
+    cll.print();
+    cout << cll.isExist(10) << endl;
+    cout << cll.isExist(20) << endl;
+    cout << cll.isItemAtEqual(10,1) << endl;
+    cll.insertAtEnd(6);
+    cll.insertAtEnd(7);
+    cll.print();
+    cll.swap(1,3);
+    cll.print();
+    cout << cll.isEmpty() << endl;
+    cout << cll.cllSize() << endl;
+    cll.clear();
+    cll.print();
+    
 
 /// Testing Stack
     cout << "\nTesting Stack:\n";
